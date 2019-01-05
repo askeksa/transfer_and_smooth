@@ -86,10 +86,12 @@ impl Plugin for MyPlugin {
 	}
 
 	fn process(&mut self, buffer: &mut AudioBuffer<f32>) {
+		// Update filter state of all changed parameters.
 		for (p, value) in self.params.transfer.iterate(true) {
 			self.states[p].set(value);
 		}
 
+		// Dummy synth adding together a bunch of sines.
 		let samples = buffer.samples();
 		let mut outputs = buffer.split().1;
 		for i in 0..samples {
