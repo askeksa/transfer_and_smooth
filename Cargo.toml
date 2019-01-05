@@ -1,0 +1,11 @@
+[package]
+name = "transfer_and_smooth"
+version = "0.1.0"
+authors = ["Aske Simon Christensen <askesc@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+vst = { git = "https://github.com/askeksa/rust-vst", branch = "thread_safe_plugin" }
+
+[lib]
+crate-type = ["cdylib"]
